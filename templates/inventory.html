@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Inventory List</h2>
+<div class="card mb-4">
+    <div class="card-body">
+        <form action="{{ url_for('inventory_add') }}" method="POST" class="row g-3">
+            <div class="col-md-4">
+                <input type="text" name="name" class="form-control" placeholder="Item Name" required>
+            </div>
+            <div class="col-md-6">
+                <input type="text" name="description" class="form-control" placeholder="Description">
+            </div>
+            <div class="col-md-2">
+                <button type="submit" class="btn btn-success w-100">Add</button>
+            </div>
+        </form>
+    </div>
+</div>
+<table class="table table-striped bg-white shadow-sm">
+    <thead>
+        <tr>
+            <th>ID</th><th>Name</th><th>Description</th><th>Created By</th><th>Last Update</th><th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in items %}
+        <tr>
+            <td>{{ item.id }}</td>
+            <td>
+                <form action="{{ url_for('inventory_edit', id=item.id) }}" method="POST" class="d-flex gap-2">
+                    <input type="text" name="name" value="{{ item.name }}" class="form-control form-control-sm" required>
+            </td>
+            <td>
+                    <input type="text" name="description" value="{{ item.description }}" class="form-control form-control-sm">
+            </td>
+            <td>{{ item.creator.username }}</td>
+            <td>{{ item.lastUpdate.strftime('%Y-%m-%d %H:%M') }}</td>
+            <td>
+                    <button type="submit" class="btn btn-primary btn-sm">Save</button>
+                </form>
+                <a href="{{ url_for('inventory_delete', id=item.id) }}" class="btn btn-danger btn-sm" onclick="return confirm('Delete?')">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
