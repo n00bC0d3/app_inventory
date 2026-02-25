@@ -5,18 +5,17 @@ from flask_login import LoginManager, UserMixin, login_user, login_required, log
 from flask_session import Session
 from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import datetime
-from config import Config
-import redis
+from config import Config  # ✅ Import Config class
 
 app = Flask(__name__)
-app.config.from_object(Config)
+app.config.from_object(Config)  # ✅ Load config properly
 
 # Initialize extensions
 db = SQLAlchemy(app)
 login_manager = LoginManager()
 login_manager.init_app(app)
 login_manager.login_view = 'login'
-Session(app)
+Session(app)  # ✅ Initialize Flask-Session after config is loaded
 
 # --- Models ---
 
