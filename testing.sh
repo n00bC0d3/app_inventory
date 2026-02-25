@@ -13,3 +13,11 @@ redis-cli -h 10.20.10.13 -a Password123* ping
 sudo apt update
 sudo apt install postgresql-client -y
 psql -h 10.20.10.2 -p 5432 -U admin -d postgres
+
+
+
+# run the app 
+
+source venv/bin/activate
+python app.py 
+
