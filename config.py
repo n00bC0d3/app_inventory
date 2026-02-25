@@ -12,7 +12,7 @@ class Config:
     # Session Configuration
     SESSION_TYPE = 'redis'
     SESSION_PERMANENT = False
-    SESSION_USE_SIGNER = True
+    # ✅ Removed SESSION_USE_SIGNER — not needed in Flask-Session >= 0.8.0
     
     # ✅ Create Redis client object from URL
     redis_client = redis.from_url(os.environ.get('REDIS_URL'))
