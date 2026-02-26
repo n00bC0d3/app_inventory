@@ -1,7 +1,7 @@
 sequenceDiagram 
-    participant Admin as System Admin
-    participant VM as Ubuntu VM
-    participant TencentDB as Tencent PostgreSQL
+    participant Admin as System  
+    participant VM as Ubuntu V \M
+    participant TencentDB as Tencent PostgreSQL 
     participant TencentRedis as Tencent Redis
 
     Admin->>VM: 1. Create Ubuntu 22.04 VM
