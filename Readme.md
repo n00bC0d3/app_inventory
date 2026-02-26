@@ -1,4 +1,4 @@
-sequenceDiagram
+sequenceDiagram 
     participant Admin as System Admin
     participant VM as Ubuntu VM
     participant TencentDB as Tencent PostgreSQL
