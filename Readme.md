@@ -16,3 +16,10 @@ sequenceDiagram
     Admin->>VM: 10. Configure Systemd Service
     Admin->>VM: 11. Configure Nginx
     Admin->>VM: 12. Start & Test Application
+
+
+
+
+config ke .env.example file with the correct user, password, and host ip of postgresql and redis
+chmod +x setup_pyApp.sh
+run ./setup_pyApp.sh

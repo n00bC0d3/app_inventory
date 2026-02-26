@@ -19,6 +19,7 @@ class Config:
     SESSION_REDIS = redis_client
     
     # Security settings
-    SESSION_COOKIE_SECURE = True
+    _is_https = os.environ.get('HTTPS_ENABLED', 'false').lower() == 'true'
+    SESSION_COOKIE_SECURE = _is_https
     SESSION_COOKIE_HTTPONLY = True
     SESSION_COOKIE_SAMESITE = 'Lax'
